@@ -11,4 +11,4 @@ st.dataframe(
 )
 
 
-st.write('More importantly... here is a explore my two fish pages')
+st.write('More importantly... explore my two fish pages')
