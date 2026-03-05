@@ -44,5 +44,5 @@ if l == 1:
     st.write('Your SIN list results are bellow')
     st.dataframe(sin_results_not_safe)
 
-     st.write('Your ECHA regulated chemicals table is bellow')
-     st.dataframe(echa_results_not_safe)
+    st.write('Your ECHA regulated chemicals table is bellow')
+    st.dataframe(echa_results_not_safe)
