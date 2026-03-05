@@ -4,8 +4,9 @@ import pandas as pd
 st.title("Welcome to the Upload page!")
 
 st.write("To enter your test list use the button bellow.")
-uploaded_file = st.file_uploader("Upload your Excel file", type=["csv"])
+uploaded_file = st.file_uploader("Upload your csv file", type=["csv"])
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    st.dataframe(df)
+    st.dataframe(df[['name', 'cas_number']])
+
