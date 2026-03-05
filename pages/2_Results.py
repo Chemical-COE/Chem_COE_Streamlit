@@ -36,11 +36,13 @@ if l == 1:
     sin_results.fillna('Safe', inplace=True)
 
     # Filter and seperate DataFrames
-    echa_results_safe = echa_results[echa_results['name_y'] == 'Safe'][['name_x' , 'cas_number']].copy().reset_index(drop = True)
-    echa_results_not_safe = echa_results[echa_results['name_y'] != 'Safe'].copy().reset_index(drop = True)
+    echa_results_safe = echa_results[echa_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
 
-    sin_results_safe = sin_results[sin_results['name_y'] == 'Safe'][['name_x' , 'cas_number']].copy().reset_index(drop = True)
-    sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop = True)
+    echa_results_not_safe = echa_results[echa_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'ECHA_list_name'})
+
+    sin_results_safe = sin_results[sin_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
+
+    sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
 
     st.write('Your SIN list results are bellow')
     st.dataframe(sin_results_not_safe)
