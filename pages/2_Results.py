@@ -9,8 +9,8 @@ echa_list = pd.read_excel('chemical_universe_list_en.xlsx')
 l = 0
 
 if 'chemical_data' in st.session_state:
-    df = st.session_state['chemical_data']
-    st.dataframe(df[['name','cas_number']])
+    test_list = st.session_state['chemical_data'][['name','cas_number']]
+    st.dataframe(test_list)
     l = 1
 
 else:
