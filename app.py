@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Welcome to the Chemical Code of Ethics!")
+st.title("Welcome to the Chemical Code of Ethics App!")
 st.write("Our goal is to let you manage your own chemicals")
 st.write("To begin, download the Test Sheet and fill in your CAS Numbers and Chemical Names.")
 
