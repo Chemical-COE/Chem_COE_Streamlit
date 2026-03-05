@@ -16,7 +16,7 @@ if 'chemical_data' in st.session_state:
 else:
     st.warning("Please upload your data on the upload page first.")
 
-if l = 1:
+if l == 1:
     # Normalize the sheets to have cas numbers as strings
     echa_list['cas_number'] = echa_list['cas_number'].astype(str)
     sin_list['cas_number'] = sin_list['cas_number'].astype(str)
