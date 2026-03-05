@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.title("Welcome to the Results page!")
+st.write('This page may take a few moments to load.')
 
 sin_list = pd.read_excel('SinList_result.xlsx')
 echa_list = pd.read_excel('chemical_universe_list_en.xlsx')
