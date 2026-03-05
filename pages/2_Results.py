@@ -45,4 +45,5 @@ if l == 1:
     st.dataframe(sin_results_not_safe)
 
     st.write('Your ECHA regulated chemicals table is bellow')
+    st.write('Follow the link in the "Info Card" column to learn more about the substance')
     st.dataframe(echa_results_not_safe)
