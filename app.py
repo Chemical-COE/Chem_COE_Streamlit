@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 
 st.title("Welcome to the Chemical Code of Ethics App!")
-st.write("Our goal is to let you manage your own chemicals")
+st.write("Our goal is to let you manage your own chemicals.")
+st.write("App creators do not see or or store any of your data.")
 st.write("To begin, download the Test Sheet and fill in your CAS Numbers and Chemical Names.")
-st.write('Your sheet should look similar to the table below. Make sure to retain the original column names ("name" and "cas_number".)')
+st.write('Your sheet should look similar to the table below. Make sure to retain the original column names ("name" and "cas_number".).')
 
 test_list = pd.DataFrame(columns=['name', 'cas_number'])
 csv = test_list.to_csv(index=False)
