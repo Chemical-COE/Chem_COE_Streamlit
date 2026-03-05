@@ -19,7 +19,10 @@ st.download_button(
 name = ["Acetone", "Benzene", "Toluene", "Ethanol",]
 cas_number = ["67-64-1", "71-43-2", "108-88-3", "64-17-5"]
 test_list = pd.DataFrame({'name': name, 'cas_number': cas_number})
-st.write('Your sheet should look similar to the table below.')
+st.write('Your sheet should look similar to the table below. Make sure to retain the original column names.')
+st.write('You can even choose to download this table as a csv by hovering over the table with your mouse and selecting the download icon.')
 st.dataframe(test_list)
 
 st.write("After filling out your sheet please the side bar to navigate to the 'Upload' page.")
+
+
