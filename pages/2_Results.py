@@ -41,5 +41,8 @@ if l == 1:
     sin_results_safe = sin_results[sin_results['name_y'] == 'Safe'][['name_x' , 'cas_number']].copy().reset_index(drop = True)
     sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop = True)
 
-    st.write('Your sin list results are bellow')
+    st.write('Your SIN list results are bellow')
     st.dataframe(sin_results_not_safe)
+
+     st.write('Your ECHA regulated chemicals table is bellow')
+     st.dataframe(echa_results_not_safe)
