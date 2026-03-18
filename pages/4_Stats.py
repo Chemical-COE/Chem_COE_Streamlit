@@ -16,6 +16,7 @@ if st.session_state['result_sucsess'] == 'result_passed':
   echa_safe = st.session_state['echa_s']
   echa_not_safe = st.session_state['echa_ns']
   sin_safe = st.session_state['sin_s']
-  sin_not_safe = st.session_state['sin_ns']
+  sin_not_safe = st.session_state['sin_ns']0
+
 
 
