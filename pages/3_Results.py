@@ -1,11 +1,25 @@
 import streamlit as st
 import pandas as pd
 
+if 'mode' not in st.session_state:
+    st.session_state['mode'] = 'Default'
+
 st.title("Welcome to the Results page!")
 st.write('This page may take a few moments to load.')
+st.info(f"You are currently in {st.session_state['mode']} mode.")
 
-sin_list = pd.read_excel('SinList_result.xlsx')
-echa_list = pd.read_excel('chemical_universe_list_en.xlsx')
+if st.session_state['mode'] == 'Default':
+    sin_list = pd.read_excel('SinList_result.xlsx')
+    echa_list = pd.read_excel('chemical_universe_list_en.xlsx')
+
+elif st.session_state['mode'] == 'Advanced':
+    if 'sin_table' in st.session_state and 'echa_table' in st.session_state:
+        sin_list = st.session_state['sin_table']
+        echa_list = st.session_state['echa_table']
+    
+    else:
+        st.warning("Please upload your reference tables on the Mode page first.")
+        st.stop()
 
 l = 0
 
