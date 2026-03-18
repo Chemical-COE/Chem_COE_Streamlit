@@ -21,7 +21,7 @@ st.write("Or if would you like to upload your own reffrence tables, please click
 if st.button("Advanced"):
     st.session_state['mode'] = 'Advanced'
 
-st.write(f"You are currently in {st.session_state['mode']} mode.") ## I need to add this to the Results Page to make sure they are in the right mode.
+st.info(f"You are currently in {st.session_state['mode']} mode.") ## I need to add this to the Results Page to make sure they are in the right mode.
 
 if st.session_state['mode'] == 'Advanced':
     st.write("If you are uploading your own files, please make sure they have the same columns as used in the analysis:")
