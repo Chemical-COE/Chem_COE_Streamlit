@@ -8,6 +8,7 @@ if 'result_sucsess' not in st.session_state:
     st.session_state['result_sucsess'] = 'No_result'
 
 st.title("Welcome to the Statistics page")
+st.info("This Page is still in development.")
 if st.session_state['result_sucsess'] == 'No_result':
    st.warning('Please complete your file upload before visiting the statistics page')
    st.stop()
