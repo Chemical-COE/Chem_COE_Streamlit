@@ -4,6 +4,9 @@ import pandas as pd
 if 'mode' not in st.session_state:
     st.session_state['mode'] = 'Default'
 
+if 'result_sucsess' not in st.session_state:
+    st.session_state['result_sucsess'] = 'No_result'
+
 st.title("Welcome to the Results page!")
 st.write('This page may take a few moments to load.')
 st.info(f"You are currently in {st.session_state['mode']} mode.")
@@ -32,39 +35,48 @@ else:
     st.warning("Please upload your data on the upload page first.")
 
 if l == 1:
-    # Normalize the sheets to have cas numbers as strings
-    echa_list['cas_number'] = echa_list['cas_number'].astype(str)
-    sin_list['cas_number'] = sin_list['cas_number'].astype(str)
-    test_list['cas_number'] = test_list['cas_number'].astype(str)
-
-    # Fill missing data with "NIES" -> Not In Excel Sheet (Missing From Excel Sheet)
-    sin_list.fillna('NIES', inplace=True)
-    echa_list.fillna('NIES', inplace=True)
-
-    # Join the test list with the refrerence lists
-    echa_results = test_list.merge(echa_list, on='cas_number', how='left')
-    sin_results = test_list.merge(sin_list, on='cas_number', how='left')
-
-    # Fill the Na Results with Safe (These can be filtered)
-    echa_results.fillna('Safe', inplace=True)
-    sin_results.fillna('Safe', inplace=True)
-
-    # Filter and seperate DataFrames
-    echa_results_safe = echa_results[echa_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
-    st.session_state['echa_s'] = echa_results_safe
+    try:
+        # Normalize the sheets to have cas numbers as strings
+        echa_list['cas_number'] = echa_list['cas_number'].astype(str)
+        sin_list['cas_number'] = sin_list['cas_number'].astype(str)
+        test_list['cas_number'] = test_list['cas_number'].astype(str)
     
-    echa_results_not_safe = echa_results[echa_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'ECHA_list_name'})
-    st.session_state['echa_ns'] = echa_results_not_safe
+        # Fill missing data with "NIES" -> Not In Excel Sheet (Missing From Excel Sheet)
+        sin_list.fillna('NIES', inplace=True)
+        echa_list.fillna('NIES', inplace=True)
     
-    sin_results_safe = sin_results[sin_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
-    st.session_state['sin_s'] = sin_results_safe
+        # Join the test list with the refrerence lists
+        echa_results = test_list.merge(echa_list, on='cas_number', how='left')
+        sin_results = test_list.merge(sin_list, on='cas_number', how='left')
     
-    sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
-    st.session_state['sin_ns'] = sin_results_not_safe
+        # Fill the Na Results with Safe (These can be filtered)
+        echa_results.fillna('Safe', inplace=True)
+        sin_results.fillna('Safe', inplace=True)
     
-    st.write('Your SIN list results are bellow')
-    st.dataframe(sin_results_not_safe)
+        # Filter and seperate DataFrames
+        echa_results_safe = echa_results[echa_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
+        st.session_state['echa_s'] = echa_results_safe
+        
+        echa_results_not_safe = echa_results[echa_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'ECHA_list_name'})
+        st.session_state['echa_ns'] = echa_results_not_safe
+        
+        sin_results_safe = sin_results[sin_results['name_y'] == 'Safe'][['name_x', 'cas_number']].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name'})
+        st.session_state['sin_s'] = sin_results_safe
+        
+        sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
+        st.session_state['sin_ns'] = sin_results_not_safe
+        
+        st.write('Your SIN list results are bellow')
+        st.dataframe(sin_results_not_safe)
+    
+        st.write('Your ECHA regulated chemicals table is bellow')
+        st.write('Follow the link in the "infoard" column to learn more about the substance')
+        st.dataframe(echa_results_not_safe)
+        
+        st.session_state['result_sucsess'] = 'result_passed'
+        st.st.success('You have Sucsessfully Uploaded Your Chemicals! :)')
+        
+    except:
+        st.warning('Something went wrong Please ensure your column names are consistent with the examples and ensure your Cas numbers are strings.')
 
-    st.write('Your ECHA regulated chemicals table is bellow')
-    st.write('Follow the link in the "infoard" column to learn more about the substance')
-    st.dataframe(echa_results_not_safe)
+ 
