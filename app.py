@@ -9,14 +9,13 @@ st.write('Your sheet should look similar to the table below. Make sure to retain
 
 test_list = pd.DataFrame(columns=['name', 'cas_number'])
 csv = test_list.to_csv(index=False)
-
+st.subheaer('Please ensure your test list is a csv file')
 st.download_button(
     label="Download Test Sheet",
     data=csv,
     file_name="test_list.csv",
     mime="text/csv"
 )
-
 
 name = ["Acetone", "Benzene", "Toluene", "Ethanol",]
 cas_number = ["67-64-1", "71-43-2", "108-88-3", "64-17-5"]
