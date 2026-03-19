@@ -67,14 +67,17 @@ if l == 1:
         st.session_state['sin_ns'] = sin_results_not_safe
         
         st.write('Your SIN list results are bellow')
+        st.subheader('"These reflect your chemicals that are ON the SIN List.')
         st.dataframe(sin_results_not_safe)
     
         st.write('Your ECHA regulated chemicals table is bellow')
-        st.write('Follow the link in the "infoard" column to learn more about the substance')
+        st.subheader('These Reflect chemicals that are regulated by ECHA.')
+        st.write('Follow the link in the "infocard" column to learn more about the substance')
         st.dataframe(echa_results_not_safe)
         
         st.session_state['result_sucsess'] = 'result_passed'
         st.st.success('You have Sucsessfully Uploaded Your Chemicals! :)')
+        st.write("we made it all the way here")
         
     except:
         st.warning('Something went wrong Please ensure your column names are consistent with the examples and ensure your Cas numbers are strings.')
