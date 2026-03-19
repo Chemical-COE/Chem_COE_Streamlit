@@ -35,7 +35,7 @@ st.write('This reflects the number of chemicals in your test set that are and ar
 st.plotly_chart(fig)
 
 sin_results_not_safe = sin_not_safe.sort_values('sin_groups', ascending=True).copy()
-fig = px.bar(sin_results_not_safe, x='sin_groups', hover_name='name_x', hover_data = ['cas_number', 'inclusion_date'], title = 'SIN Group Distribution')
+fig = px.bar(sin_results_not_safe, x='sin_groups', hover_name = 'test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'SIN Group Distribution')
 st.plotly_chart(fig)
 
 
