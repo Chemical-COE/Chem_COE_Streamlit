@@ -76,7 +76,7 @@ if l == 1:
         st.dataframe(echa_results_not_safe)
         
         st.session_state['result_sucsess'] = 'result_passed'
-        st.st.success('You have Sucsessfully Uploaded Your Chemicals! :)')
+        st.success('You have Sucsessfully Uploaded Your Chemicals! :)')
         st.write("we made it all the way here")
         
     except:
