@@ -9,7 +9,7 @@ st.write('Your sheet should look similar to the table below. Make sure to retain
 
 test_list = pd.DataFrame(columns=['name', 'cas_number'])
 csv = test_list.to_csv(index=False)
-st.subheaer('Please ensure your test list is a csv file')
+st.subheader('Please ensure your test list is a csv file')
 st.download_button(
     label="Download Test Sheet",
     data=csv,
