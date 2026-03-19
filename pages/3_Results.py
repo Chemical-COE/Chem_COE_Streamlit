@@ -77,7 +77,7 @@ if l == 1:
         
         st.session_state['result_sucsess'] = 'result_passed'
         st.success('You have Sucsessfully Uploaded Your Chemicals! :)')
-        st.write("we made it all the way here")
+        #st.write("we made it all the way here")
         
     except:
         st.warning('Something went wrong Please ensure your column names are consistent with the examples and ensure your Cas numbers are strings.')
