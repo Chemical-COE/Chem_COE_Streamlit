@@ -7,7 +7,7 @@ echa_list = pd.read_excel('chemical_universe_list_en.xlsx')
 if 'mode' not in st.session_state:
     st.session_state['mode'] = 'Default'
 
-st.title("Welcome to the mode page")
+st.title("Welcome to the mode page!")
 
 st.write("Here you can define a few options.")
 st.write("Would you like to use the refrence tables we accesed in September of 2025?")
