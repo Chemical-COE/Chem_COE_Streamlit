@@ -30,6 +30,14 @@ fig = px.bar(
     labels={'x': 'Category', 'y': 'Number of Chemicals'},
     color=['Flagged by SIN List', 'Not Flagged'],
 )
+
+st.write('This reflects the number of chemicals in your test set that are and are not on the SIN List.')
 st.plotly_chart(fig)
+
+sin_results_not_safe = sin_not_safe.sort_values('sin_groups', ascending=True).copy()
+fig = px.bar(sin_results_not_safe, x='sin_groups', hover_name='name_x', hover_data = ['cas_number', 'inclusion_date'], title = 'SIN Group Distribution')
+st.plotly_chart(fig)
+
+
 
 
