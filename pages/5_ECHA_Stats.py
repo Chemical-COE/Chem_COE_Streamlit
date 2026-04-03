@@ -39,7 +39,7 @@ echa_results_not_safe = echa_not_safe.sort_values('position_in_the_chemical _uni
 fig = px.bar(echa_results_not_safe, x='position_in_the_chemical _universe', hover_name = 'test_list_name', hover_data = [ 'cas_number', 'registration_type', 'infocard' ], title = 'ECHA Group Distribution')
 st.plotly_chart(fig)
 
-st.dataframe(echa_not_safef.loc[:, ['cas_number', 'test_list_name','infocard']])
+st.dataframe(echa_not_safe.loc[:, ['cas_number', 'test_list_name','infocard']])
 
 
 
