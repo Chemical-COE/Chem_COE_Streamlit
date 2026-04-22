@@ -24,23 +24,23 @@ echa_count = len(echa_not_safe)
 echa_nr_count = len(echa_safe)
 
 fig = px.bar(
-    x=['Regulated by ECHA List', 'Not Regulated'],
+    x=['Regulated by REACH List', 'Not Regulated'],
     y=[echa_count, echa_nr_count],
-    title='ECHA List Results',
+    title='Reach List Results',
     labels={'x': 'Category', 'y': 'Number of Chemicals'},
-    color=['Regulated by ECHA List', 'Not Regulated'],
+    color=['Regulated by REACH List', 'Not Regulated'],
 )
 
-st.write('This reflects the number of chemicals in your test set that are and are Regulated by the ECHA List.')
+st.write('This reflects the number of chemicals in your test set that are and are Regulated by the REACH List.')
 st.plotly_chart(fig)
 
-st.write('This reflects the distribution of the Chemical Universe groups in your test list.')
+st.write('This reflects the distribution of the REACH groups in your test list.')
 echa_results_not_safe = echa_not_safe.sort_values('position_in_the_chemical _universe', ascending=True).copy()
 fig = px.bar(echa_results_not_safe, x='position_in_the_chemical _universe', hover_name = 'test_list_name', hover_data = [ 'cas_number', 'registration_type', 'infocard' ], title = 'ECHA Group Distribution')
 st.plotly_chart(fig)
 
 
-st.write('To learn more about your ECHA regulated chemicals use the links in the table below')
+st.write('To learn more about your REACH regulated chemicals use the links in the table below')
 st.dataframe(echa_not_safe.loc[:, ['cas_number', 'test_list_name','infocard']])
 
 
