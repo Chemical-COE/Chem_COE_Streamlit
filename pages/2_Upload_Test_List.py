@@ -9,6 +9,7 @@ uploaded_file = st.file_uploader("Upload your csv file", type=["csv"])
 if uploaded_file is not None:
     try:
         uploaded_csv = pd.read_csv(uploaded_file)
+        uploaded_csv['name'] = uploaded_csv['name'].fillna(uploaded_csv['cas_number']) 
         st.session_state['chemical_data'] = uploaded_csv
     
         st.dataframe(uploaded_csv[['name', 'cas_number']])
