@@ -9,19 +9,32 @@ if 'mode' not in st.session_state:
 
 st.title("Welcome to the Mode page!")
 
-st.write("Here you can define a few options.")
-st.write("Would you like to use the refrence tables we accesed in September of 2025?")
-st.write("If so press the 'Default' Button Below.")
+st.write("Here you can choose the reffrence sheet(s) to which the chemiccals in your Chemical Information Sheet will be compared.")
+st.write("The comparison will allow you to see if the chemicals you are using are included in the SIN List* or restricted under the EU's REACH Regulation **")
+
+st.write("The 'Default' mode uses reference sheets based on the SIN List and the REACH registered substance list from September of 2025?")
+st.write("Click the 'Default' button below if you would like to choose this option.")
 
 if st.button("Default"):
     st.session_state['mode'] = 'Default'
     
-st.write("Or if would you like to upload your own reffrence tables, please click the 'Advanced' Button bellow")
+st.write("Alternatively, if you would like to upload reference sheets that contain more recent data from the SIN List and REACH please click the 'Advanced' button below.")
+st.write("After clicking on the 'Advanced' Button you will see example reference sheets for REACH and the SIN List.")
+st.write("Note that if you plan to use the advanced option your uploaded reference sheets must be in the same format and contain all the same column headers as what is shown in the example reference sheets.")
 
 if st.button("Advanced"):
     st.session_state['mode'] = 'Advanced'
 
 st.info(f"You are currently in {st.session_state['mode']} mode.") ## I need to add this to the Results Page to make sure they are in the right mode.
+
+st.write("*Please see The International Chemical Secretariat’s (ChemSec) website for more on the SINList.")
+st.link_button("Go to ChemSec", "https://sinlist.chemsec.org")
+
+st.write("**If visiting the European Chemicals Agency’s (ECHA) website through a link from this app, please see the agency’s legal notice.")
+st.link_button('Go to ECHA Legal Notice', 'http://echa.europa.eu/web/guest/legal-notice')
+st.write("We acknowledge that the source of REACH data used in this app is from ECHA.")
+st.link_button("Go to ECHA Website", "http://echa.europa.eu/")
+st.link_button("This page is also useful in understanding ECHA’s chemical universe", "https://echa.europa.eu/sl/universe-of-registered-substances")
 
 if st.session_state['mode'] == 'Advanced':
     st.write("If you are uploading your own files, please make sure they have the same columns as used in the analysis:")
