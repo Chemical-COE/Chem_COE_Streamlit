@@ -3,7 +3,7 @@ import pandas as pd
 
 st.title("Welcome to the Upload page!")
 
-st.write("To enter your test list use the button bellow.")
+st.write("Please upload your Chemical Information Sheet in csv format by clicking on the button below.")
 uploaded_file = st.file_uploader("Upload your csv file", type=["csv"])
 
 if uploaded_file is not None:
