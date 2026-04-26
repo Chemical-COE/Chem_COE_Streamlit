@@ -9,6 +9,7 @@ if 'result_sucsess' not in st.session_state:
 
 st.title("Welcome to the Results page!")
 st.write('This page may take a few moments to load.')
+st.write("The first table of information that appears below includes the data from your Chemical Information Sheet.")
 st.info(f"You are currently in {st.session_state['mode']} mode.")
 
 if st.session_state['mode'] == 'Default':
@@ -66,13 +67,14 @@ if l == 1:
         sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
         st.session_state['sin_ns'] = sin_results_not_safe
         
-        st.write('Your SIN list results are bellow')
-        st.subheader('"These reflect your chemicals that are ON the SIN List.')
+        st.write('TABLE (SIN data table) is here')
+        st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List')
+        st.subheader("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, possible safer substitutes, and much more.")
         st.dataframe(sin_results_not_safe)
     
-        st.write('Your ECHA regulated chemicals table is bellow')
-        st.subheader('These Reflect chemicals that are regulated by ECHA.')
-        st.write('Follow the link in the "infocard" column to learn more about the substance')
+        st.write('TABLE (REACH data table) is here')
+        st.subheader('REACH Regulation Matches: The chemicals in the table below are chemicals you use that have been registered under the REACH regulation.')
+        st.write('Navigate the results table to understand the status of each chemical under REACH and use the “infocard” and other information to learn more about each chemical.')
         st.dataframe(echa_results_not_safe)
         
         st.session_state['result_sucsess'] = 'result_passed'
