@@ -6,7 +6,7 @@ st.write("This app was designed as an example to demonstrate how companies might
 st.write("App creators do not see or store any of your data.")
 st.write("To begin, download the blank Chemical Information Sheet and fill in your CAS Registry Numbers and chemical names.")
 st.write("(The CAS Registry Numbers are the essential pieces of information needed by the app; the app understands that a single CAS Registry Number might be associated with multiple chemical names.) We recommend opening the file in Excel or Google Sheets.")
-st.write('Your Chemical Information sheet should look similar to the table below. Make sure to retain the original column headings (i.e., "name" and "cas_number".).')
+st.write('Your Chemical Information Sheet should look similar to the table below. Make sure to retain the original column headings (i.e., "name" and "cas_number").')
 
 test_list = pd.DataFrame(columns=['name', 'cas_number'])
 csv = test_list.to_csv(index=False)
