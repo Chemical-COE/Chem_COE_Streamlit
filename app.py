@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 
 st.title("Welcome to the Chemical Code of Ethics App!")
-st.write("This app was designed to help companies better understand hazards that might be associated withchemicals that are used in their products.")
+st.write("This app was designed to help companies better understand hazards that might be associated with chemicals that are used in their products.")
 st.write("App creators do not see or store any of your data.")
 st.write("To begin, download the blank Chemical Information Sheet and fill in your CAS Registry Numbers and chemical names.")
-st.write("(The CAS Registry Numbers are the essential pieces of information needed by the app; the app understands that a single CAS Registry Number maybe associated with multiple chemical names.) We recommend opening the file in Excel or Google Sheets.")
+st.write("(The CAS Registry Numbers are the essential pieces of information needed by the app; the app understands that a single CAS Registry Number might be associated with multiple chemical names.) We recommend opening the file in Excel or Google Sheets.")
 st.write('Your Chemical Information sheet should look similar to the table below. Make sure to retain the original column headings (i.e., "name" and "cas_number".).')
 
 test_list = pd.DataFrame(columns=['name', 'cas_number'])
