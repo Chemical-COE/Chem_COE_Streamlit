@@ -9,10 +9,10 @@ if 'mode' not in st.session_state:
 
 st.title("Welcome to the Mode page!")
 
-st.write("Here you can choose the reffrence sheet(s) to which the chemiccals in your Chemical Information Sheet will be compared.")
+st.write("Here you can choose the reference sheet(s) to which the chemicals in your Chemical Information Sheet will be compared.")
 st.write("The comparison will allow you to see if the chemicals you are using are included in the SIN List* or restricted under the EU's REACH Regulation **")
 
-st.write("The 'Default' mode uses reference sheets based on the SIN List and the REACH registered substance list from September of 2025?")
+st.write("The 'Default' mode uses reference sheets based on the SIN List and the REACH registered substance list from September of 2025.")
 st.write("Click the 'Default' button below if you would like to choose this option.")
 
 if st.button("Default"):
