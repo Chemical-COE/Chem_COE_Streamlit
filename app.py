@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.title("Welcome to the Chemical Code of Ethics App!")
-st.write("This app was designed to help companies better understand hazards that might be associated with chemicals that are used in their products.")
+st.write("This app was designed as an example to demonstrate how companies might better understand hazards associated with chemicals in their products. The app creators make no claims about the accuracy of the information provided by the app. It was created and tested by a small team of researchers, and any company using it should check and revise it as they see fit to meet their needs.")
 st.write("App creators do not see or store any of your data.")
 st.write("To begin, download the blank Chemical Information Sheet and fill in your CAS Registry Numbers and chemical names.")
 st.write("(The CAS Registry Numbers are the essential pieces of information needed by the app; the app understands that a single CAS Registry Number might be associated with multiple chemical names.) We recommend opening the file in Excel or Google Sheets.")
