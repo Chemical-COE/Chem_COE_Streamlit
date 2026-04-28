@@ -32,7 +32,7 @@ st.write("")
 st.write("")
 st.write("")
 
-st.warning("Important Information Below")
+#st.warning("Important Information Below")
 
 st.write("*Please see The International Chemical Secretariat’s (ChemSec) website for more on the SINList.")
 st.link_button("Go to ChemSec", "https://sinlist.chemsec.org")
