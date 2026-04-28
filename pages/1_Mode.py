@@ -25,6 +25,10 @@ st.write("Note that if you plan to use the advanced option your uploaded referen
 if st.button("Advanced"):
     st.session_state['mode'] = 'Advanced'
 
+st.write("")
+st.write("")
+st.write("")
+
 st.info(f"You are currently in {st.session_state['mode']} mode.") ## I need to add this to the Results Page to make sure they are in the right mode.
 
 st.write("*Please see The International Chemical Secretariat’s (ChemSec) website for more on the SINList.")
