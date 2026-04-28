@@ -45,7 +45,7 @@ st.link_button("This page is also useful in understanding ECHA’s chemical univ
 
 if st.session_state['mode'] == 'Advanced':
     st.write("If you are uploading your own files, please make sure they have the same columns as used in the analysis:")
-    st.write("An example can be found and downloaded below for both the ECHA table and SIN List table formatting")
+    st.write("An example can be found and downloaded below for both the REACH table and SIN List table formatting")
     
     check_echa = 0
     check_sin = 0
@@ -53,7 +53,7 @@ if st.session_state['mode'] == 'Advanced':
     st.subheader("ECHA - Example")
     st.dataframe(echa_list.head(3))
     uploaded_echa = st.file_uploader("Upload your REACH List file", type=["csv"])
-    
+    st.link_button("Download REACH List here", "https://echa.europa.eu/sl/universe-of-registered-substances")
     if uploaded_echa is not None:
         try:
             advanced_echa = pd.read_csv(uploaded_echa)
@@ -65,12 +65,13 @@ if st.session_state['mode'] == 'Advanced':
             st.error("The REACH List csv was not able to be read. Double check the file type.")
             check_echa = 0
         
-        st.link_button("Download REACH List here", "https://echa.europa.eu/sl/universe-of-registered-substances")
+        
         
     st.subheader("SIN List - Example")
     st.dataframe(sin_list.head(3))
     uploaded_sin = st.file_uploader("Upload your SIN List file", type=["csv"])
-    
+    st.link_button("Download SIN List here", "https://sinsearch.chemsec.org/")
+    st.write("You will be prompted to create an acoount / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
     if uploaded_sin is not None:
         try:
             advanced_sin = pd.read_csv(uploaded_sin)
@@ -82,8 +83,6 @@ if st.session_state['mode'] == 'Advanced':
             st.error("The SIN List csv was not able to be read. Double check the file type.")
             check_sin = 0
 
-        st.link_button("Download SIN List here", "https://sinsearch.chemsec.org/")
-        st.write("You will be prompted to create an acoount / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
         
     if check_sin + check_echa == 2:
         st.success("Both files uploaded! You are ready to move on to the results page.")
