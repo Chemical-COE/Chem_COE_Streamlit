@@ -52,19 +52,21 @@ if st.session_state['mode'] == 'Advanced':
     
     st.subheader("ECHA - Example")
     st.dataframe(echa_list.head(3))
-    uploaded_echa = st.file_uploader("Upload your ECHA List file", type=["csv"])
+    uploaded_echa = st.file_uploader("Upload your REACH List file", type=["csv"])
     
     if uploaded_echa is not None:
         try:
             advanced_echa = pd.read_csv(uploaded_echa)
             st.session_state['echa_table'] = advanced_echa
             st.dataframe(advanced_echa.head(3))
-            st.success("Double check that your ECHA List has the same columns as the above example.")
+            st.success("Double check that your REACH List has the same columns as the above example.")
             check_echa = 1
         except:
-            st.error("The ECHA List csv was not able to be read. Double check the file type.")
+            st.error("The REACH List csv was not able to be read. Double check the file type.")
             check_echa = 0
-    
+        
+        st.link_button("Download REACH List here", "https://echa.europa.eu/sl/universe-of-registered-substances")
+        
     st.subheader("SIN List - Example")
     st.dataframe(sin_list.head(3))
     uploaded_sin = st.file_uploader("Upload your SIN List file", type=["csv"])
@@ -79,7 +81,10 @@ if st.session_state['mode'] == 'Advanced':
         except:
             st.error("The SIN List csv was not able to be read. Double check the file type.")
             check_sin = 0
-    
+
+        st.link_button("Download SIN List here", "https://sinsearch.chemsec.org/")
+        st.write("You will be prompted to create an acoount / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
+        
     if check_sin + check_echa == 2:
         st.success("Both files uploaded! You are ready to move on to the results page.")
 
