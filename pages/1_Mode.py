@@ -44,7 +44,7 @@ st.link_button("Go to ECHA Website", "http://echa.europa.eu/")
 st.link_button("This page is also useful in understanding ECHA’s chemical universe", "https://echa.europa.eu/sl/universe-of-registered-substances")
 
 if st.session_state['mode'] == 'Advanced':
-    st.write("If you are uploading your own files, please make sure they have the same columns as used in the analysis:")
+    st.write("If you are uploading your own files, please make sure they have the same columns as used in the example tables below:")
     st.write("An example can be found and downloaded below for both the REACH table and SIN List table formatting")
     
     check_echa = 0
