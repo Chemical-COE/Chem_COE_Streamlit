@@ -49,11 +49,11 @@ if st.session_state['mode'] == 'Advanced':
     check_echa = 0
     check_sin = 0
     
-    st.subheader("ECHA - Example")
+    st.subheader("REACH - Example")
     st.dataframe(echa_list.head(3))
+    st.link_button("Click here to download the most recent REACH list", "https://echa.europa.eu/sl/universe-of-registered-substances")
     uploaded_echa = st.file_uploader("Upload your REACH List file", type=["csv"])
 
-    st.link_button("Click here to download the most recent REACH list", "https://echa.europa.eu/sl/universe-of-registered-substances")
     if uploaded_echa is not None:
         try:
             advanced_echa = pd.read_csv(uploaded_echa)
@@ -69,9 +69,10 @@ if st.session_state['mode'] == 'Advanced':
 
     st.subheader("SIN List - Example")
     st.dataframe(sin_list.head(3))
-    uploaded_sin = st.file_uploader("Upload your SIN List file", type=["csv"])
     st.link_button("Click here to download the most recent SIN list", "https://sinsearch.chemsec.org/")
     st.warning("You will be prompted to create an account / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
+    uploaded_sin = st.file_uploader("Upload your SIN List file", type=["csv"])
+
     if uploaded_sin is not None:
         try:
             advanced_sin = pd.read_csv(uploaded_sin)
