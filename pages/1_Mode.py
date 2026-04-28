@@ -39,7 +39,7 @@ st.link_button("Go to ChemSec", "https://sinlist.chemsec.org")
 
 st.write("**If visiting the European Chemicals Agency’s (ECHA) website through a link from this app, please see the agency’s legal notice.")
 st.link_button('Go to ECHA Legal Notice', 'http://echa.europa.eu/web/guest/legal-notice')
-st.write("We acknowledge that the source of REACH data used in this app is from ECHA.")
+st.write("**We acknowledge that the source of REACH data used in this app is from ECHA.")
 st.link_button("Go to ECHA Website", "http://echa.europa.eu/")
 st.link_button("This page is also useful in understanding ECHA’s chemical universe", "https://echa.europa.eu/sl/universe-of-registered-substances")
 
