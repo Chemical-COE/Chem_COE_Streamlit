@@ -71,7 +71,7 @@ if st.session_state['mode'] == 'Advanced':
     st.dataframe(sin_list.head(3))
     uploaded_sin = st.file_uploader("Upload your SIN List file", type=["csv"])
     st.link_button("Download SIN List here", "https://sinsearch.chemsec.org/")
-    st.warning("You will be prompted to create an acoount / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
+    st.warning("You will be prompted to create an account / log in. You will need to navigate to the 'Search the Sin List' option to download the list as an excel file.")
     if uploaded_sin is not None:
         try:
             advanced_sin = pd.read_csv(uploaded_sin)
