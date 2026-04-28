@@ -19,7 +19,7 @@ if st.button("Default"):
     st.session_state['mode'] = 'Default'
     
 st.write("Alternatively, if you would like to upload reference sheets that contain more recent data from the SIN List and REACH please click the 'Advanced' button below.")
-st.write("After clicking on the 'Advanced' Button you will see example reference sheets for REACH and the SIN List.")
+st.write("After clicking on the 'Advanced' Button, scroll down to see example reference sheets for REACH and the SIN List.")
 st.write("Note that if you plan to use the advanced option your uploaded reference sheets must be in the same format and contain all the same column headers as what is shown in the example reference sheets.")
 
 if st.button("Advanced"):
