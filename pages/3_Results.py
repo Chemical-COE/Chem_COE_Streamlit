@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 if 'mode' not in st.session_state:
     st.session_state['mode'] = 'Default'
@@ -43,8 +44,8 @@ if l == 1:
         test_list['cas_number'] = test_list['cas_number'].astype(str)
     
         # Fill missing data with "NIES" -> Not In Excel Sheet (Missing From Excel Sheet)
-        ##sin_list.fillna('NIES', inplace=True)
-        ##echa_list.fillna('NIES', inplace=True)
+        sin_list.fillna('NIES', inplace=True)
+        echa_list.fillna('NIES', inplace=True)
     
         # Join the test list with the refrerence lists
         echa_results = test_list.merge(echa_list, on='cas_number', how='left')
@@ -66,6 +67,9 @@ if l == 1:
         
         sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
         st.session_state['sin_ns'] = sin_results_not_safe
+
+        sin_list.fillna('NIES', inplace=True)
+        echa_list.str.replace('NIES', np.nan, inplace=True)
         
         st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List.')
         st.write("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, ChemSec's suggested marketplace alternatives, and more.")
