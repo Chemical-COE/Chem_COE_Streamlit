@@ -67,8 +67,8 @@ if l == 1:
         sin_results_not_safe = sin_results[sin_results['name_y'] != 'Safe'].copy().reset_index(drop=True).rename(columns={'name_x': 'test_list_name', 'name_y': 'SIN_list_name'})
         st.session_state['sin_ns'] = sin_results_not_safe
         
-        st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List')
-        st.write("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, possible safer substitutes, and much more.")
+        st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List.')
+        st.write("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, possible safer substitutes, and more.")
         st.dataframe(sin_results_not_safe)
   
         st.subheader('REACH Regulation Matches: The chemicals in the table below are chemicals you use that have been registered under the REACH regulation.')
