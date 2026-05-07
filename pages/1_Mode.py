@@ -13,7 +13,7 @@ st.write("Here you can choose the reference sheet(s) to which the chemicals in y
 st.write("The comparison will allow you to see if the chemicals you are using are included in the SIN List* or restricted under the EU's REACH Regulation**.")
 
 st.write("The 'Default' mode uses reference sheets based on the SIN List and the REACH registered substance list from September of 2025.")
-st.write("Click the 'Default' button below if you would like to choose this option. (If you decide to switch modes, please refresh the app and start over).")
+st.write("Click the 'Default' button below if you would like to choose this option. (If you decide to switch modes later, please refresh the app and start over).")
 
 if st.button("Default"):
     st.session_state['mode'] = 'Default'
