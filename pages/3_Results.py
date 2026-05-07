@@ -69,7 +69,7 @@ if l == 1:
         st.session_state['sin_ns'] = sin_results_not_safe
 
         #sin_results.fillna('NIES', inplace=True)
-        echa_results.str.replace('NIES', '', inplace=True)
+        #echa_results.str.replace('NIES', '', inplace=True)
         
         st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List.')
         st.write("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, ChemSec's suggested marketplace alternatives, and more.")
