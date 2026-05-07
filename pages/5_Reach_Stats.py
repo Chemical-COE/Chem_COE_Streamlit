@@ -9,7 +9,7 @@ if 'result_sucsess' not in st.session_state:
     st.session_state['result_sucsess'] = 'No_result'
 
 st.title("Welcome to the Statistics page!")
-st.info("This Page is still in development.")
+#### st.info("This Page is still in development.")
 if st.session_state['result_sucsess'] == 'No_result':
    st.warning('Please complete your file upload before visiting the statistics page')
    st.stop()
@@ -40,7 +40,7 @@ fig = px.bar(echa_results_not_safe, x='position_in_the_chemical _universe', hove
 st.plotly_chart(fig)
 
 
-st.write('To learn more about your REACH regulated chemicals use the links in the table below')
+#st.write('To learn more about your REACH regulated chemicals use the links in the table below')
 #st.dataframe(echa_not_safe.loc[:, ['cas_number', 'test_list_name','infocard']])
 
 
