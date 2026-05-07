@@ -78,6 +78,7 @@ if l == 1:
   
         st.subheader('REACH Regulation Matches: The chemicals in the table below are chemicals you use that have been registered under the REACH regulation.')
         st.write('Navigate the results table to understand the status of each chemical under REACH and use the “infocard” and other information to learn more about each chemical.')
+        echa_results_not_safe = echa_results_not_safe.map(lambda x: x.replace('NIES', '') if isinstance(x, str) else x)
         st.dataframe(echa_results_not_safe)
         
         st.session_state['result_sucsess'] = 'result_passed'
