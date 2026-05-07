@@ -34,9 +34,9 @@ fig = px.bar(
 st.write('The chart below reflects the number of chemicals from your Chemical Information Sheet that are registered under REACH.')
 st.plotly_chart(fig)
 
-st.write('This reflects the distribution of the REACH groups in your test list.')
+st.write('The next chart reflects the position of chemicals from your Chemical Information Sheet in the REACH chemical universe.')
 echa_results_not_safe = echa_not_safe.sort_values('position_in_the_chemical _universe', ascending=True).copy()
-fig = px.bar(echa_results_not_safe, x='position_in_the_chemical _universe', hover_name = 'test_list_name', hover_data = [ 'cas_number', 'registration_type', 'infocard' ], title = 'ECHA Group Distribution')
+fig = px.bar(echa_results_not_safe, x='position_in_the_chemical _universe', hover_name = 'test_list_name', hover_data = [ 'cas_number', 'registration_type', 'infocard' ], title = 'Position in the REACH Chemical Universe')
 st.plotly_chart(fig)
 
 
