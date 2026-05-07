@@ -24,14 +24,14 @@ echa_count = len(echa_not_safe)
 echa_nr_count = len(echa_safe)
 
 fig = px.bar(
-    x=['Regulated by REACH List', 'Not Regulated'],
+    x=['Registered under REACH', 'Not Registered'],
     y=[echa_count, echa_nr_count],
-    title='Reach List Results',
+    title='Reach Results',
     labels={'x': 'Category', 'y': 'Number of Chemicals'},
-    color=['Regulated by REACH List', 'Not Regulated'],
+    color=['Registered under REACH', 'Not Registered'],
 )
 
-st.write('This reflects the number of chemicals in your test set that are and are Regulated by the REACH List.')
+st.write('The chart below reflects the number of chemicals from your Chemical Information Sheet that are registered under REACH.')
 st.plotly_chart(fig)
 
 st.write('This reflects the distribution of the REACH groups in your test list.')
