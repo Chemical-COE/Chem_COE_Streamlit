@@ -73,6 +73,7 @@ if l == 1:
         
         st.subheader('SIN List Matches: The chemicals in the table below are chemicals you use that are on the SIN List.')
         st.write("Navigate the results table to understand why each chemical is included in the SIN List, its REACH status, ChemSec's suggested marketplace alternatives, and more.")
+        sin_results_not_safe.str.replace('NIES', '', inplace = True)
         st.dataframe(sin_results_not_safe)
   
         st.subheader('REACH Regulation Matches: The chemicals in the table below are chemicals you use that have been registered under the REACH regulation.')
