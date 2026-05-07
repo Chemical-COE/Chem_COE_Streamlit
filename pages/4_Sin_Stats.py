@@ -35,12 +35,12 @@ st.write('The chart below reflects the number of chemicals in your Chemical Info
 st.plotly_chart(fig)
 
 
-st.write('The next chart reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's SIN Groups.')
+st.write("The next chart reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's SIN Groups.")
 sin_results_not_safe = sin_not_safe.sort_values('sin_groups', ascending=True).copy()
 fig = px.bar(sin_results_not_safe, x='sin_groups', hover_name = 'test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'SIN Group Distribution')
 st.plotly_chart(fig)
 
-st.write('The final chart below reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's Health and Environmental Concerns.')
+st.write("The final chart below reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's Health and Environmental Concerns.")
 sin_results_not_safe = sin_results_not_safe.sort_values('health_env_concern', ascending=True)
 fig = px.bar(sin_results_not_safe, x='health_env_concern', hover_name='test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'Health and Environmental Concerns')
 st.plotly_chart(fig)
