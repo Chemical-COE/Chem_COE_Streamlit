@@ -24,25 +24,25 @@ sin_count = len(sin_not_safe)
 safe_count = len(sin_safe)
 
 fig = px.bar(
-    x=['Flagged by SIN List', 'Not Flagged'],
+    x=['Included in the SIN List', 'Not Included'],
     y=[sin_count, safe_count],
     title='SIN List Results',
     labels={'x': 'Category', 'y': 'Number of Chemicals'},
-    color=['Flagged by SIN List', 'Not Flagged'],
+    color=['Included in the SIN List', 'Not Included'],
 )
 
-st.write('This reflects the number of chemicals in your test set that are and are not on the SIN List.')
+st.write('The chart below reflects the number of chemicals in your Chemical Information Sheet that are on the SIN List.')
 st.plotly_chart(fig)
 
 
-st.write('This reflects the distribution of the SIN Groups in your test list.')
+st.write('The next chart reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's SIN Groups.')
 sin_results_not_safe = sin_not_safe.sort_values('sin_groups', ascending=True).copy()
 fig = px.bar(sin_results_not_safe, x='sin_groups', hover_name = 'test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'SIN Group Distribution')
 st.plotly_chart(fig)
 
-st.write('This reflects the distribution of Environmental Concerns in your test list.')
+st.write('The final chart below reflects how chemicals from your Chemical Information Sheet are distributed among the SIN List's Health and Environmental Concerns.')
 sin_results_not_safe = sin_results_not_safe.sort_values('health_env_concern', ascending=True)
-fig = px.bar(sin_results_not_safe, x='health_env_concern', hover_name='test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'Health Envirronmental Concerns')
+fig = px.bar(sin_results_not_safe, x='health_env_concern', hover_name='test_list_name', hover_data = ['cas_number', 'inclusion_date'], title = 'Health and Environmental Concerns')
 st.plotly_chart(fig)
 
 
