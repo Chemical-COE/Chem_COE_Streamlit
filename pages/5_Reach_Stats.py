@@ -41,7 +41,7 @@ st.plotly_chart(fig)
 
 
 st.write('To learn more about your REACH regulated chemicals use the links in the table below')
-st.dataframe(echa_not_safe.loc[:, ['cas_number', 'test_list_name','infocard']])
+#st.dataframe(echa_not_safe.loc[:, ['cas_number', 'test_list_name','infocard']])
 
 
 
